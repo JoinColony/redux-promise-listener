@@ -8,7 +8,7 @@ export type SetPayload = (Action, any) => Action
 export type GetPayload = Action => ?any
 export type ActionMatcher = Action => boolean
 export type Config = {
-  start: string,
+  start: string | (({ payload?: any, meta?: any }) => Action),
   resolve: string | ActionMatcher,
   reject: string | ActionMatcher,
   setPayload?: SetPayload,
